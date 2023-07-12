@@ -18,18 +18,25 @@ function Row({ title, fetchUrl, isLargeRow = false }) {
     fetchData();
   }, [fetchUrl]);
 
+  function truncate(string,n){
+    return string?.length > n ? string.substr(0, n - 1) + '...' : string;
+}
+
   return (
     <div className='row'>
       <h2>{title}</h2>
       <div className='row_posters'>
         {movies.map((movie) => (
           (isLargeRow && movie.poster_path) || (!isLargeRow && movie.backdrop_path) ? (
+            <div className= 'card'>
             <img
               className={`row_poster ${isLargeRow && "row_posterLarge"}`}
               key={movie.id}
               src={`${base_url}${isLargeRow ? movie.poster_path : movie.backdrop_path}`}
               alt={movie.name}
             />
+            <p>{truncate(movie.title || movie.name,15) }</p>
+            </div>
           ) : null
         ))}
       </div>
