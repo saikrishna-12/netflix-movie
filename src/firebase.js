@@ -9,7 +9,7 @@ const firebaseConfig = {
   projectId: "netflix-movie-c9f77",
   storageBucket: "netflix-movie-c9f77.appspot.com",
   messagingSenderId: "837405390844",
-  appId: "1:837405390844:web:49ca6812b21f326f7ea479"
+  appId: "1:837405390844:web:4ed2998418e694e27ea479"
 };
 
 const firebaseApp = firebase.initializeApp(firebaseConfig);
